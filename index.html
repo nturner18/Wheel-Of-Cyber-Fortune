@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wheel of Cyber Fortune</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="site-header">
+  <h1>WHEEL<span class="dim"> OF </span>CYBER<span class="dim"> </span>FORTUNE</h1>
+  <button id="btn-mute" class="chip" title="Toggle sound">SOUND: ON</button>
+</header>
+
+<main>
+  <!-- ══════════ SETUP ══════════ -->
+  <section id="screen-setup" class="screen">
+    <div class="panel setup-panel">
+      <h2>&gt; INITIALIZE GAME_</h2>
+
+      <div class="setup-row">
+        <label>HUMAN PLAYERS</label>
+        <div class="seg" id="seg-humans">
+          <button data-v="1" class="on">1</button><button data-v="2">2</button><button data-v="3">3</button>
+        </div>
+      </div>
+
+      <div id="name-inputs" class="setup-row names"></div>
+
+      <div class="setup-row">
+        <label>ROUNDS</label>
+        <div class="seg" id="seg-rounds">
+          <button data-v="3" class="on">3</button><button data-v="5">5</button><button data-v="7">7</button>
+        </div>
+      </div>
+
+      <div class="setup-help">
+        <p>Empty seats are filled by adaptive CPU contestants. Spin for cash and call a
+        consonant, buy vowels for $250, or solve the puzzle. Round winner banks their
+        winnings; highest bank after the last round plays the BONUS ROUND.</p>
+      </div>
+
+      <button id="btn-start" class="big-btn">▶ BOOT GAME</button>
+    </div>
+  </section>
+
+  <!-- ══════════ MAIN GAME ══════════ -->
+  <section id="screen-game" class="screen" hidden>
+    <div class="topbar">
+      <div id="round-ind" class="chip">ROUND 1/3</div>
+      <div id="category-bar">CATEGORY</div>
+      <div id="wedge-result" class="chip">&nbsp;</div>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <div class="mid">
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="400" height="400"></canvas>
+      </div>
+
+      <div class="side">
+        <div id="scoreboard" class="scoreboard"></div>
+        <div id="status-log" class="status-log"></div>
+        <div class="actions">
+          <button id="btn-spin" class="act-btn">SPIN</button>
+          <button id="btn-vowel" class="act-btn">BUY VOWEL −$250</button>
+          <button id="btn-solve" class="act-btn">SOLVE</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="keyboard" class="keyboard"></div>
+  </section>
+
+  <!-- ══════════ BONUS ROUND ══════════ -->
+  <section id="screen-bonus" class="screen" hidden>
+    <div class="topbar">
+      <div class="chip">BONUS ROUND</div>
+      <div id="bonus-category">CATEGORY</div>
+      <div id="bonus-timer" class="chip timer">&nbsp;</div>
+    </div>
+    <div id="bonus-board" class="board"></div>
+    <div id="bonus-msg" class="bonus-msg"></div>
+    <div id="bonus-keyboard" class="keyboard"></div>
+    <div class="bonus-solve-row">
+      <input id="bonus-input" class="solve-input" type="text" autocomplete="off"
+             placeholder="TYPE YOUR SOLUTION AND PRESS ENTER" hidden>
+    </div>
+  </section>
+
+  <!-- ══════════ GAME OVER ══════════ -->
+  <section id="screen-over" class="screen" hidden>
+    <div class="panel over-panel">
+      <h2 id="over-title">&gt; GAME OVER_</h2>
+      <div id="final-standings"></div>
+      <button id="btn-again" class="big-btn">↻ REBOOT</button>
+    </div>
+  </section>
+</main>
+
+<!-- solve modal -->
+<div id="solve-modal" class="modal" hidden>
+  <div class="modal-box">
+    <h3 id="solve-title">SOLVE THE PUZZLE</h3>
+    <div id="solve-pattern" class="solve-pattern"></div>
+    <input id="solve-input" class="solve-input" type="text" autocomplete="off"
+           placeholder="TYPE THE FULL PHRASE">
+    <div class="modal-btns">
+      <button id="btn-solve-go" class="act-btn">SUBMIT</button>
+      <button id="btn-solve-cancel" class="act-btn ghost">CANCEL</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/puzzles.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/wheel.js"></script>
+<script src="js/cpu.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
