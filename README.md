@@ -4,7 +4,7 @@ cat > README.md << 'EOF'
 Interactive cybersecurity-themed Wheel of Fortune clone built with HTML, CSS, and JavaScript.
 
 ## 🎮 Play Now
-[Launch the game](https://YOUR_USERNAME.github.io/wheel-of-cyber-fortune/)
+[Launch the game](https://nturner18.github.io/Wheel-Of-Cyber-Fortune/)
 
 ## About
 Designed as both a learning tool and a brand engagement asset for AegisPro CyberShield TX, this game challenges players to solve puzzles rooted in real-world security concepts, threats, and best practices.
