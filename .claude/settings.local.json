@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(try { \\(Get-Command py -ErrorAction Stop\\).Source } catch { \"no py\" }; try { \\(Get-Command node -ErrorAction Stop\\).Source } catch { \"no node\" }; try { \\(Get-Command npx -ErrorAction Stop\\).Source } catch { \"no npx\" })",
-      "PowerShell(try { \\(Invoke-WebRequest -Uri http://localhost:8321/ -UseBasicParsing -TimeoutSec 5\\).StatusCode } catch { $_.Exception.Message })"
-    ]
-  }
-}
